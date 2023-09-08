@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AgendaStyle.css'
 
 const AgendaComponent = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -46,54 +47,56 @@ const AgendaComponent = () => {
 
 
   return (
-    <div className="container">
-      <h2 className="section-title">Agenda</h2>
-      <div className="section">
-        <p className="label">Selecciona una fecha:</p>
-        <input
-          className="input"
-          type="date"
-          onChange={(e) => handleDateChange(e.target.value)}
-        />
-      </div>
-      <div className="section">
-        <p className="label">Selecciona una hora:</p>
-        <input
-          list="listalimitestiempo"
-          className="input"
-          type="time"
-          onChange={(e) => handleTimeChange(e.target.value)}
-        />
-        <datalist id='listalimitestiempo'>
-          <option value="10:00"></option>
-          <option value="11:00"></option>
-          <option value="12:00"></option>
-          <option value="13:00"></option>
-        </datalist>
-      </div>
-      <div className="section">
-        <p className="label">Seleccionar mascota :</p>
-        <select
-          className="select"
-          onChange={(e) => handleAnimalChange(e.target.value)}
-        >
-          <option className='label' value="">Selecciona un animal</option>
-          <option className='label' value="perro">Perro</option>
-          <option className='label' value="gato">Gato</option>
-          <option className='label' value="otro">Otro</option>
-        </select>
-      </div>
-      {error && <p className="error-message">{error}</p>}
-      <button className="button" onClick={handleSubmit}>
-        Agendar cita
-      </button>
-      {isCitaAgendada && (
-        <div className="success-message">
-          ¡Cita agendada con éxito!
-        </div>
-      )}
-    </div>
-  );
-};
+    <div className="container-agenda">
+     <h2 className="section-title-agenda">Reserve Su Turno</h2>
+     <div className="section-agenda">
+       <p className="label">Selecciona una fecha:</p>
+       <input
+         className="input-agenda"
+         type="date"
+         onChange={(e) => handleDateChange(e.target.value)}
+       />
+     </div>
+     <div className="section-agenda">
+       <p className="label-agenda">Selecciona una hora:</p>
+       <input
+         list="listalimitestiempo"
+         className="input-agenda"
+         type="time"
+         onChange={(e) => handleTimeChange(e.target.value)}
+       />
+       <datalist className='data' id='listalimitestiempo'>
+         <option value="10:00"></option>
+         <option value="11:00"></option>
+         <option value="12:00"></option>
+         <option value="13:00"></option>
+       </datalist>
+     </div>
+     <div className="section-agenda">
+       <p className="label-agenda">Seleccionar mascota :</p>
+       <select
+         className="select-agenda"
+         onChange={(e) => handleAnimalChange(e.target.value)}
+       >
+         <option className='label' value="">Selecciona un animal</option>
+         <option className='label' value="perro">Perro</option>
+         <option className='label' value="gato">Gato</option>
+         <option className='label' value="otro">Otro</option>
+       </select>
+     </div>
+     {error && <p className="error-message">{error}</p>}
+     <button className="button-agenda" onClick={handleSubmit}>
+       Agendar cita
+     </button>
+     {isCitaAgendada && (
+       <div className="success-message">
+         ¡Cita agendada con éxito!
+       </div>
+     )}
+   </div> 
+  
+    
+   );
+ };
 
 export default AgendaComponent;
